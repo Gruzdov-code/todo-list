@@ -2,11 +2,14 @@ import React from 'react';
 import TodoItem from './TodoItem';
 
 const TodoList = (props) => {
-	console.log(props.takecount);
+	// console.log(props.todo);
+// debugger
 	return (
-		<div className='todo-list'>
-			<TodoItem takecount={props.takecount} />
-		</div>
+		<ul className='todo-list'>
+			{props.todo.map((todo) => {
+		return	<TodoItem key={todo.id} todo={todo} onChange={props.onToggle} />
+			})}
+		</ul>
 	);
 };
 
